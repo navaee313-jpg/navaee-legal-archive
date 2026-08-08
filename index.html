@@ -32,7 +32,10 @@
     --radius:14px;
   }
   *{box-sizing:border-box;}
+  html,body{max-width:100%;overflow-x:hidden;}
   body{margin:0;font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--text);}
+  .table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius);}
+  .table-wrap table{min-width:560px;}
   h1,h2,h3,.serif{font-family:'Noto Naskh Arabic',serif;}
   a{color:inherit;text-decoration:none;}
   button{font-family:inherit;cursor:pointer;}
@@ -203,7 +206,7 @@
         <div class="toolbar">
           <input type="text" id="client-search" placeholder="جستجو بر اساس نام، کد ملی، موبایل...">
         </div>
-        <table>
+        <div class="table-wrap"><table>
           <thead>
             <tr>
               <th>کد موکل</th><th>نام</th><th>نوع</th><th>موبایل</th><th>ایمیل</th><th></th>
@@ -212,7 +215,7 @@
           <tbody id="clients-table-body">
             <tr><td colspan="6" class="empty">در حال بارگذاری...</td></tr>
           </tbody>
-        </table>
+        </table></div>
       </section>
 
       <section class="page" id="page-cases">
@@ -223,28 +226,28 @@
         <div class="toolbar">
           <input type="text" id="case-search" placeholder="جستجو بر اساس موضوع، کلاسه، موکل...">
         </div>
-        <table>
+        <div class="table-wrap"><table>
           <thead>
             <tr><th>کلاسه/شماره</th><th>موکل</th><th>نوع</th><th>موضوع</th><th>وضعیت</th><th>اهمیت</th><th></th></tr>
           </thead>
           <tbody id="cases-table-body">
             <tr><td colspan="7" class="empty">در حال بارگذاری...</td></tr>
           </tbody>
-        </table>
+        </table></div>
       </section>
       <section class="page" id="page-deadlines">
         <div class="page-head">
           <div><h1>مواعید</h1><div class="date">مهلت‌های قانونی و جلسات پرونده‌ها</div></div>
           <button class="btn-primary" id="btn-new-deadline">+ موعد جدید</button>
         </div>
-        <table>
+        <div class="table-wrap"><table>
           <thead>
             <tr><th>تاریخ</th><th>ساعت</th><th>نوع</th><th>پرونده</th><th>وضعیت</th><th></th></tr>
           </thead>
           <tbody id="deadlines-table-body">
             <tr><td colspan="6" class="empty">در حال بارگذاری...</td></tr>
           </tbody>
-        </table>
+        </table></div>
       </section>
 
       <section class="page" id="page-calendar">
@@ -274,14 +277,14 @@
           <div class="stat-card"><div class="num" id="stat-total-expense">۰</div><div class="label">مجموع هزینه‌ها (تومان)</div></div>
           <div class="stat-card gold"><div class="num" id="stat-balance">۰</div><div class="label">مانده (تومان)</div></div>
         </div>
-        <table>
+        <div class="table-wrap"><table>
           <thead>
             <tr><th>تاریخ</th><th>پرونده</th><th>نوع</th><th>مبلغ (تومان)</th><th>توضیحات</th><th></th></tr>
           </thead>
           <tbody id="finance-table-body">
             <tr><td colspan="6" class="empty">در حال بارگذاری...</td></tr>
           </tbody>
-        </table>
+        </table></div>
       </section>
       <section class="page" id="page-documents">
         <div class="page-head">
@@ -289,14 +292,14 @@
           <button class="btn-primary" id="btn-new-document">+ آپلود سند</button>
         </div>
         <p style="font-size:12px;color:var(--text-dim);margin:-8px 0 16px;">حجم هر فایل حداکثر ۱.۵ مگابایت (چون فایل‌ها همین‌جا در مرورگر ذخیره می‌شوند).</p>
-        <table>
+        <div class="table-wrap"><table>
           <thead>
             <tr><th>نام فایل</th><th>پرونده</th><th>دسته‌بندی</th><th>تاریخ</th><th></th></tr>
           </thead>
           <tbody id="documents-table-body">
             <tr><td colspan="5" class="empty">در حال بارگذاری...</td></tr>
           </tbody>
-        </table>
+        </table></div>
       </section>
 
       <section class="page" id="page-search">
