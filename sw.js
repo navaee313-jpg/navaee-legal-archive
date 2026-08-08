@@ -1,4 +1,4 @@
-const CACHE_NAME = 'navaee-archive-v2';
+const CACHE_NAME = 'navaee-archive-v3';
 const ASSETS = [
   './',
   './index.html',
@@ -25,19 +25,19 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
+// Network-first: always try to fetch the latest version from the
+// server first. Only fall back to the cached copy if the network
+// request fails (i.e. the user is actually offline). This prevents
+// the app from getting stuck showing an old cached version after an
+// update is published.
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      return (
-        cached ||
-        fetch(event.request)
-          .then((response) => {
-            const copy = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
-            return response;
-          })
-          .catch(() => cached)
-      );
-    })
+    fetch(event.request)
+      .then((response) => {
+        const copy = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+        return response;
+      })
+      .catch(() => caches.match(event.request))
   );
 });
